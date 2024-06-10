@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
             else if (Time.timeScale < 0.07f) Time.timeScale = 0.07f;
 
             if (rx != 0) rx /= 2f;
-            if (ry > 2f)
+            if (ry > 2.5f)
                 ry -= Time.deltaTime / 2.5f;
 
             rb.velocity = new Vector2(rx, ry);
@@ -224,7 +224,7 @@ public class Player : MonoBehaviour
             if (rb.velocity.y <= -10f) rb.velocity = new Vector2(rb.velocity.x, -10f);
 
             if ((jetFuel <= 0.1f || !useJet || !jetReady) && (!grounded || rb.velocity.y < -6f) &&
-                rb.gravityScale > 1.0f)
+                rb.gravityScale > 1.0f && !ending)
                 fallingTime = Mathf.Clamp(fallingTime + Time.fixedDeltaTime, 0f, 3.5f);
             else
                 fallingTime = Mathf.Clamp(fallingTime - Time.fixedDeltaTime * 2f, 0f, 2.5f);
