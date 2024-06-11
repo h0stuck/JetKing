@@ -376,6 +376,7 @@
 "Assets/Scripts/GroundScript.cs"
 "Assets/Scripts/LowGravity.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/ScreenResolution.cs"
 "Assets/Scripts/SoundSystem.cs"
 "Assets/Scripts/TitleScript.cs"
 "Assets/Scripts/UISystem.cs"

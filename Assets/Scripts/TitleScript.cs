@@ -9,7 +9,7 @@ public class TitleScript : MonoBehaviour
 
     public bool gameStart = false;
 
-    private float uiPos = 0;
+    //private float uiPos = 0;
 
     // Start is called before the first frame update
     void Start()
