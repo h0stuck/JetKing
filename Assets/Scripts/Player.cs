@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
                         rb.freezeRotation = true;
                     }
 
-                    if (Mathf.Abs(rb.velocity.y) < 0.1f)
+                    if (Mathf.Abs(rb.velocity.y) < Mathf.Epsilon)
                     {
                         rb.velocity = new Vector2(rb.velocity.x, 0);
                         if (transform.position.y < lastY - 18f && !UISystem.instance.showingText)
@@ -139,10 +139,6 @@ public class Player : MonoBehaviour
                     jetReady = true;
                     fuelManager.GetComponent<FuelManager>().FuelOn();
                 }
-                //else if(!Input.GetKey(KeyCode.Space))
-                //{
-                //    jetReady = false;
-                //}
             }
             else onGround = false;
 
@@ -186,23 +182,18 @@ public class Player : MonoBehaviour
                     if (rb.velocity.y >= 6.0f) yPower = 0f;
                     float xPower = -(float)(Math.Sin(transform.rotation.z) * jetPower);
                     if (Mathf.Abs(rb.velocity.x) >= 6.0f) xPower = 0f;
+                    
                     if (xPower * rb.velocity.x < 0)
-                    {
                         rb.velocity = new Vector2(rb.velocity.x / 2, rb.velocity.y);
-                    }
 
                     if (rb.velocity.x >= maxXv && xPower > 0)
                     {
                         xPower = 0;
-                        //rb.velocity = new Vector2(maxXv, rb.velocity.y);
                     }
                     else if (rb.velocity.x <= -maxXv && xPower < 0)
                     {
                         xPower = 0;
-                        //rb.velocity = new Vector2(-maxXv, rb.velocity.y);
                     }
-
-                    //var xv = Mathf.Lerp(rb.velocity.x, )
 
                     rb.velocity = new Vector2(
                         rb.velocity.x + xPower + (xPower * ((flyingTime * flyingTime + 1f) / 2f + 1.8f)),
@@ -313,5 +304,6 @@ public class Player : MonoBehaviour
     {
         UISystem.instance.ShowText();
     }
+
 }
 

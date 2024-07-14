@@ -78,7 +78,8 @@ public class CameraScript : MonoBehaviour
         //_camera.ScreenToWorldPoint(player.position);
         var cameraTransform = transform;
         var currentCameraPosition = cameraTransform.position;
-        var offsetCamera = targetWorldPos - currentCameraPosition - (targetWorldPos - currentCameraPosition) / (_camera.orthographicSize/_targetZoomSize);
+        var offsetCamera = 
+            targetWorldPos - currentCameraPosition - (targetWorldPos - currentCameraPosition) / (_camera.orthographicSize/_targetZoomSize);
 
         // 카메라 크기 갱신
         _camera.orthographicSize = _targetZoomSize;
