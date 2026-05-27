@@ -68,8 +68,6 @@
 - Rigidbody2D
 - Collider2D
 - 2D Platformer Movement
-- Jetpack System
-- Fuel System
 
 ---
 
